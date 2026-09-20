@@ -1,0 +1,126 @@
+﻿
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新浪财经历史分红数据获取与预处理系统</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>新浪财经历史分红数据获取与预处理系统</h1>
+            <p>基于Playwright自动化爬虫 · 数据清洗 · 可视化展示</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro-section">
+            <h2>项目说明</h2>
+            <div class="intro-grid">
+                <div class="intro-card">
+                    <h3>数据获取</h3>
+                    <p>使用Playwright自动化访问新浪财经，抓取个股历史分红数据</p>
+                </div>
+                <div class="intro-card">
+                    <h3>数据预处理</h3>
+                    <p>清洗空值、重复行、异常字符，统一日期格式，计算分红率</p>
+                </div>
+                <div class="intro-card">
+                    <h3>可视化展示</h3>
+                    <p>提供原始数据预览、清洗后数据预览和统计信息展示</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="control-section">
+            <h2>数据获取控制</h2>
+            <div class="control-panel">
+                <div class="input-group">
+                    <label for="stockCode">股票代码：</label>
+                    <input type="text" id="stockCode" placeholder="请输入股票代码，如：000001" maxlength="10">
+                </div>
+                <button id="fetchBtn" class="btn-primary">开始抓取数据</button>
+                <button id="processBtn" class="btn-secondary">数据预处理</button>
+            </div>
+            <div id="statusMessage" class="status-message"></div>
+        </section>
+
+        <section class="stats-section">
+            <h2>数据统计</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalRecords">0</div>
+                    <div class="stat-label">总记录数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="cleanRecords">0</div>
+                    <div class="stat-label">清洗后记录数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgDividend">0.00</div>
+                    <div class="stat-label">平均每股派息(元)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgRate">0.00%</div>
+                    <div class="stat-label">平均分红率</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="data-section">
+            <h2>原始数据预览</h2>
+            <div class="table-container">
+                <table id="rawTable">
+                    <thead>
+                        <tr>
+                            <th>股票代码</th>
+                            <th>分红年度</th>
+                            <th>分红方案</th>
+                            <th>每股送转</th>
+                            <th>每股派息</th>
+                            <th>股权登记日</th>
+                            <th>除权除息日</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="7" class="empty-data">暂无数据</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="data-section">
+            <h2>清洗后数据预览</h2>
+            <div class="table-container">
+                <table id="cleanTable">
+                    <thead>
+                        <tr>
+                            <th>股票代码</th>
+                            <th>分红年度</th>
+                            <th>分红方案</th>
+                            <th>每股送转</th>
+                            <th>每股派息</th>
+                            <th>股权登记日</th>
+                            <th>除权除息日</th>
+                            <th>分红率(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cleanTableBody">
+                        <tr><td colspan="8" class="empty-data">暂无数据</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 新浪财经历史分红数据获取与预处理系统 | 基于Playwright和Pandas构建</p>
+        </div>
+    </footer>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>

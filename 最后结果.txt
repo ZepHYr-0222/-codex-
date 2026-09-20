@@ -1,0 +1,35 @@
+项目已全部完成，所有文件都在 C:\Users\YEDX\Documents\ChatGPT\New project\ 目录下。以下是交付内容总览：
+项目文件清单
+文件	说明
+plan.md	项目规划方案（需求确认 + 技术选型 + 实施计划）
+get_dividend.py	Playwright 自动化爬虫脚本
+data_preprocess.py	数据预处理脚本（清洗/标准化/分红率计算）
+index.html	前端 UI 页面（项目说明 + 输入框 + 表格 + 统计卡片）
+static/css/style.css	页面样式
+static/js/script.js	前端交互逻辑
+README.md	项目介绍 + 运行步骤 + Git 提交指引
+report.md	作业提交报告（含截图建议 + 文件清单 + 技术总结）
+.gitignore	Git 忽略规则
+
+
+运行步骤
+# 1. 安装依赖
+pip install playwright pandas numpy
+playwright install chromium
+
+# 2. 抓取数据
+python get_dividend.py
+
+# 3. 数据预处理
+python data_preprocess.py
+
+# 4. 打开 index.html 查看前端界面
+Git 提交命令
+系统上没有检测到 Git，你在终端执行以下命令即可完成提交：
+cd "C:\Users\YEDX\Documents\ChatGPT\New project"
+git init
+git add .
+git commit -m "feat: 新浪财经历史分红数据获取与预处理系统"
+git remote add origin https://gitee.com/Zephyr-zhy/codex-word.git
+git push -u origin main
+README.md 和 report.md 里已经替换成你的 Gitee 仓库地址了，直接用就行。
